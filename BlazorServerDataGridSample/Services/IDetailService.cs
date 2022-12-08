@@ -14,7 +14,7 @@ public interface IDetailService<TEntity>
 
     ValueTask UpdateAsync(TEntity entity, int id);
 
-    ValueTask UpdateAllAsync(IList<TEntity> entities);
+    ValueTask UpdateAllAsync(IList<TEntity> entities, ISet<int> sets);
 
     ValueTask RemoveAsync(int id);
 }

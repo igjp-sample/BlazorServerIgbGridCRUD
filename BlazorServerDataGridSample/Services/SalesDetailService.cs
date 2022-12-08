@@ -53,8 +53,8 @@ public class SalesDetailService : ISalesDetailService
         return _SalesDetailRepository.UpdateAsync(_mapper.Map<SalesDetail>(entity), id);
     }
 
-    public ValueTask UpdateAllAsync(IList<SalesDetailViewModel> entities)
+    public ValueTask UpdateAllAsync(IList<SalesDetailViewModel> entities, ISet<int> sets)
     {
-        return _SalesDetailRepository.UpdateAllAsync(entities.Select(_mapper.Map<SalesDetail>));
+        return _SalesDetailRepository.UpdateAllAsync(entities.Select(_mapper.Map<SalesDetail>), sets);
     }
 }
