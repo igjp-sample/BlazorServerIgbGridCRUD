@@ -101,131 +101,62 @@
                  @ref="_grid"
                  DisplayDensity="DisplayDensity.Compact">
 
-                <IgbColumnLayout Header="Header"
-                             Pinned="true">
-                    <IgbColumn Field="SlipNumber"
-                           Width="100px"
-                           RowStart="1"
-                           RowEnd="2"
-                           ColStart="1"
-                           Header="伝票番号"
-                           Editable="false">
-
-                        <BodyTemplate>
-                            <input type="number" value="@context.Cell.Value" @oninput="(args => OnCellInput(context, row => row.SlipNumber = int.TryParse(args.Value?.ToString(), out var n) ? n: 0))" style="position:absolute; top:0; left:0; bottom:0; right:0;" />
-                        </BodyTemplate>
-
-                    </IgbColumn>
-                    <IgbColumn Field="RowNumber"
-                           Width="100px"
-                           RowStart="1"
-                           RowEnd="2"
-                           ColStart="2"
-                           Header="行番号"
-                           Editable="false">
-                    </IgbColumn>
-                </IgbColumnLayout>
-
-                <IgbColumnLayout Header="Detail"
-                             Pinned="true">
-
-
-                    <IgbColumn Field="ItemCode"
-                           RowStart="1"
-                           ColStart="1"
-                           Header="商品コード"
-                           Editable="true">
-                    </IgbColumn>
-                    <IgbColumn RowStart="1"
-                           ColStart="2"
-                           Width="90px"
-                           Header="">
-                        <BodyTemplate>
-                            <button class="btn btn-primary" @onclick="() => sampleDialog!.ShowDialog(context, _salesDetails)">検索</button>
-                        </BodyTemplate>
-                    </IgbColumn>
-                    <IgbColumn Field="ItemName"
-                           RowStart="2"
-                           RowEnd="2"
-                           ColStart="1"
-                           ColEnd="3"
-                           Header="商品名"
-                           Editable="true">
-                    </IgbColumn>
-
-
-                    <IgbColumn Field="Quantity"
-                           DataType="GridColumnDataType.Number"
-                           RowStart="1"
-                           ColStart="3"
-                           Header="数量"
-                           Editable="true">
-                    </IgbColumn>
-
-                    <IgbColumn Field="UnitPrice"
-                           DataType="GridColumnDataType.Number"
-                           RowStart="2"
-                           ColStart="3"
-                           Header="単価"
-                           Editable="true">
-                    </IgbColumn>
-
-                    <IgbColumn Field="Amount"
-                           DataType="GridColumnDataType.Number"
-                           RowStart="1"
-                           ColStart="4"
-                           Header="金額"
-                           Editable="false">
-                    </IgbColumn>
-
-                    <IgbColumn Field="SalesTax"
-                           DataType="GridColumnDataType.Number"
-                           RowStart="2"
-                           ColStart="4"
-                           Header="消費税"
-                           Editable="false">
-                    </IgbColumn>
-                </IgbColumnLayout>
-
-                <IgbColumnLayout Header="CustomTemplate" Pinned="true">
-                    <IgbColumn RowStart="1"
-                           ColStart="1"
-                           Header="カスタム列">
-                        <BodyTemplate>
-                            <input class="form-control">
-                            <button class="btn btn-secondary">検索</button>
-                            <br>
-                            <select class="form-select" aria-label="Default select example">
-                                <option selected>Open this select menu</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
-                            </select>
-                        </BodyTemplate>
-                    </IgbColumn>
-                    <IgbColumn RowStart="1"
-                           ColStart="2"
-                           Header="カスタム列2">
-                        <BodyTemplate>
-                            <input style="width:100px"> - <input style="width:20px">
-                            <br>
-                            <input type="checkbox"> チェックボックス
-                        </BodyTemplate>
-                    </IgbColumn>
-                </IgbColumnLayout>
+                <IgbColumn Field="SlipNumber"
+                    Width="100px"
+                    Header="伝票番号"
+                    Editable="false">
+                </IgbColumn>
+                <IgbColumn Field="RowNumber"
+                    Width="100px"
+                    Header="行番号"
+                    Editable="false">
+                </IgbColumn>
+                <IgbColumn Field="ItemCode"
+                    Header="商品コード"
+                    Editable="true">
+                </IgbColumn>
+                <IgbColumn Field="ItemName"
+                    Header="商品名"
+                    Editable="true">
+                </IgbColumn>
+                <IgbColumn Field="Quantity"
+                    DataType="GridColumnDataType.Number"
+                    RowStart="1"
+                    ColStart="3"
+                    Header="数量"
+                    Editable="true">
+                </IgbColumn>
+                <IgbColumn Field="UnitPrice"
+                    DataType="GridColumnDataType.Number"
+                    RowStart="2"
+                    ColStart="3"
+                    Header="単価"
+                    Editable="true">
+                </IgbColumn>
+                <IgbColumn Field="Amount"
+                    DataType="GridColumnDataType.Number"
+                    RowStart="1"
+                    ColStart="4"
+                    Header="金額"
+                    Editable="false">
+                </IgbColumn>
+                <IgbColumn Field="SalesTax"
+                    DataType="GridColumnDataType.Number"
+                    RowStart="2"
+                    ColStart="4"
+                    Header="消費税"
+                    Editable="false">
+                </IgbColumn>
 
                 @*削除ボタン*@
-                <IgbColumnLayout Header="DeleteButton"
-                             Pinned="true">
-                    <IgbColumn RowStart="1"
-                           ColStart="1"
-                           Width="90px"
-                           Header="削除">
-                        <BodyTemplate>
-                            <button class="btn btn-danger" @onclick="() => OnClickCellRemove(context)">削除</button>
-                        </BodyTemplate>
-                    </IgbColumn>
-                </IgbColumnLayout>
+                <IgbColumn RowStart="1"
+                        ColStart="1"
+                        Width="90px"
+                        Header="削除">
+                    <BodyTemplate>
+                        <button class="btn btn-danger" @onclick="() => OnClickCellRemove(context)">削除</button>
+                    </BodyTemplate>
+                </IgbColumn>
             </IgbGrid>
 
         </div>
@@ -233,41 +164,7 @@
 
 }
 
-<SampleDialog @ref="sampleDialog"
-              Title="商品検索画面"
-              OKButtonCaption="OK"
-              CancelButtonCaption="Cancel"
-              ActionSelected="ActionSelected">
-</SampleDialog>
-
 @code {
-
-    //検索ダイアログ関連
-    private SampleDialog? sampleDialog;
-
-    private void ActionSelected(ItemSearchResultViewModel dialogResult)
-    {
-        //編集内容をViewModelに反映する
-        var updateData = _salesDetails[dialogResult.RowIndex];
-
-        if (dialogResult.ItemCode! == "")
-        {
-            return;
-        }
-
-        //検索結果を反映
-        updateData.ItemCode = dialogResult.ItemCode!;
-        updateData.ItemName = dialogResult.ItemName!;
-        updateData.UnitPrice = dialogResult.UnitPrice;
-        updateData.Amount = Math.Ceiling(updateData.Quantity * updateData.UnitPrice);
-        updateData.SalesTax = Math.Ceiling(updateData.Amount * 0.1M);
-
-        //変更内容を反映
-        _grid!.NotifyUpdateItem(_salesDetails, dialogResult.RowIndex, updateData);
-
-        this.StateHasChanged();
-    }
-
 
     //グリッド
     private IgbGrid? _grid;
